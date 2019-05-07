@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._]+$"
+        },
+        "automationAccountName": {
+            "required": true,
+            "type": "string"
+        },
+        "nodeId": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters supplied to the update dsc node operation.",
+            "properties": {
+                "nodeId": {
+                    "description": "Gets or sets the id of the dsc node.",
+                    "type": "string"
+                },
+                "properties": {
+                    "properties": {
+                        "nodeConfiguration": {
+                            "description": "Gets or sets the configuration of the node.",
+                            "x-ms-client-flatten": true,
+                            "properties": {
+                                "name": {
+                                    "description": "Gets or sets the name of the dsc node configuration.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

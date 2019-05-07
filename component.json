@@ -1,0 +1,202 @@
+{
+    "title": "AutomationManagement",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/automation-dscNode/2018-01-15/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "AgentRegistrationInformation_Get": {
+            "main": "./lib/actions/AgentRegistrationInformation_Get.js",
+            "title": "Retrieve the automation agent registration information.",
+            "description": "Retrieve the automation agent registration information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AgentRegistrationInformation_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AgentRegistrationInformation_RegenerateKey": {
+            "main": "./lib/actions/AgentRegistrationInformation_RegenerateKey.js",
+            "title": "Regenerate a primary or secondary agent registration key",
+            "description": "Regenerate a primary or secondary agent registration key",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AgentRegistrationInformation_RegenerateKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DscNode_ListByAutomationAccount": {
+            "main": "./lib/actions/DscNode_ListByAutomationAccount.js",
+            "title": "Retrieve a list of dsc nodes.",
+            "description": "Retrieve a list of dsc nodes.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DscNode_ListByAutomationAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DscNode_Delete": {
+            "main": "./lib/actions/DscNode_Delete.js",
+            "title": "Delete the dsc node identified by node id.",
+            "description": "Delete the dsc node identified by node id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DscNode_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DscNode_Get": {
+            "main": "./lib/actions/DscNode_Get.js",
+            "title": "Retrieve the dsc node identified by node id.",
+            "description": "Retrieve the dsc node identified by node id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DscNode_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DscNode_Update": {
+            "main": "./lib/actions/DscNode_Update.js",
+            "title": "Update the dsc node.",
+            "description": "Update the dsc node.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DscNode_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "NodeReports_ListByNode": {
+            "main": "./lib/actions/NodeReports_ListByNode.js",
+            "title": "Retrieve the Dsc node report list by node id.",
+            "description": "Retrieve the Dsc node report list by node id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/NodeReports_ListByNode.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "NodeReports_Get": {
+            "main": "./lib/actions/NodeReports_Get.js",
+            "title": "Retrieve the Dsc node report data by node id and report id.",
+            "description": "Retrieve the Dsc node report data by node id and report id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/NodeReports_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "NodeReports_GetContent": {
+            "main": "./lib/actions/NodeReports_GetContent.js",
+            "title": "Retrieve the Dsc node reports by node id and report id.",
+            "description": "Retrieve the Dsc node reports by node id and report id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/NodeReports_GetContent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
